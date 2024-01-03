@@ -2,6 +2,7 @@
  * Now, copy all the elements in another array but in reverse order.
  */
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Four {
     public static void main(String[] args){
