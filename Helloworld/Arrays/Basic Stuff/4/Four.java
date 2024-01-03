@@ -27,7 +27,7 @@ public class Four {
             counter++;
         }
 
-        System.out.println(inputList.toString());
-        System.out.println(reverseList.toString());
+        System.out.println(Arrays.toString(inputList));
+        System.out.println(Arrays.toString(reverseList));
     }
 }
