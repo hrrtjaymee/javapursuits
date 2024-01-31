@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 public class Ch3_PrExercise1{
     public static void main(String[] args) throws FileNotFoundException{
         Scanner inFile = new Scanner(new FileReader("C:\\Users\\User\\Documents\\Coding\\Java\\Skol\\ProgExercise1\\inData.txt"));
-        PrintWriter outFile = new PrintWriter("C:\\Users\\User\\Documents\\Coding\\Java\\Skol\\ProgExercise1\\outData.txt"); 
+        PrintWriter outFile = new PrintWriter("C:\\Users\\User\\Documents\\Coding\\Java\\Skol\\ProgExercise1\\outData.txt");
 
         //pi value
         double pi = 3.1416;
@@ -21,22 +21,25 @@ public class Ch3_PrExercise1{
         int age = inFile.nextInt();
         //fourth line == savings account balance begin. of month, interest rate per year
         int accountBal = inFile.nextInt();
-        double interestRate = inFile.nextDouble(); 
+        double interestRate = inFile.nextDouble();
+        double useInterestRate = interestRate / 100; 
         //fifth line == uppercase between A & Y
         String letter = inFile.next();
 
        //Calculating rectangles values
-        double recArea = length * width;
-        double recParameter = 2 * (length + width);
+        double recArea = Math.round((length * width) * 100) / 100d;
+        double recParameter = Math.round(2 * (length + width) * 100) / 100d;
 
        //Calculating circle values
-        double circumference = 2 * pi * radius;
-        double circArea = pi * (radius * radius);
+        double circumference = Math.round((2 * pi * radius) * 100) / 100d;
+        double circArea = Math.round(pi * ((radius * radius))) / 100d;
 
         //person values
         String fullName = name + " " + lastName;
-        double endAccountBal = ((interestRate * (1/12)) * accountBal) + accountBal;
-
+        double endAccountBal = Math.round((((useInterestRate * 0.083333) * accountBal) + accountBal) * 100)/100d;
+        System.out.println(endAccountBal);
+        System.out.println(useInterestRate);
+        System.out.println(interestRate);
         //letter - get ascii value - take next letter - convert back to String
         char theLetter = letter.charAt(0);
         int asciival = (int) theLetter + 1;
@@ -61,9 +64,6 @@ public class Ch3_PrExercise1{
         //close scanner and file
         inFile.close();
         outFile.close();
-
-
-        
 
 
     }
