@@ -36,6 +36,7 @@ public class Ch3_PrExercise1{
 
         //person values
         String fullName = name + " " + lastName;
+        //0.083333 is 1/12 (to calculate the interest in months)
         double endAccountBal = Math.round((((useInterestRate * 0.083333) * accountBal) + accountBal) * 100)/100d;
         System.out.println(endAccountBal);
         System.out.println(useInterestRate);
