@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ass3.css">
+    <title> Assignment 3 </title>
+</head>
+<body><main>
+    <div class="converter-body">
+        <h2 class="converter-title"> Computations with Natural Numbers </h2>   
+        <input type="text" placeholder="Input" id="naturalNumInput" onkeyup="numFunction()">
+        <span>=</span>
+        <input type="text" placeholder="Result" id="naturalNumResult">
+        <br>
+        <select id="naturalNumInputType" onchange="numFunction()">
+            <option value="factorial"> Factorial </option>
+            <option value="sum"> Sum </option>
+            <option value="average"> Average </option>
+        </select>
+    </div>
+    </main>
+    <script>
+
+        function numFunction(){
+            var naturalNumInput = document.getElementById('naturalNumInput').value;
+            var naturalNumResult = document.getElementById('naturalNumResult').value;
+            var naturalNumInputType = document.getElementById('naturalNumInputType').value;
+            var counter = 1;
+            var result = 0;
+            var product = 1;
+
+            if(naturalNumInputType === "factorial"){
+                while(counter <= Number(naturalNumInput)){
+                    product *= counter;
+                    counter++;
+                }
+                result = product;
+            }
+            else if(naturalNumInputType === "sum"){
+                while(counter <= Number(naturalNumInput)){
+                    result += counter;
+                    counter++;
+                }
+            }
+            else if(naturalNumInputType === "average"){
+                while(counter < Number(naturalNumInput)){
+                    result += counter;
+                    counter++;
+                }
+                result = result/counter;
+            }
+
+            document.getElementById('naturalNumResult').value=result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tax Income Calculator </title>
+    <link rel="stylesheet" href="ass2.css">
+</head>
+<body> <main> 
+    <div class="converter-body">
+        <h1 class="converter-title"> Tax Income Calculator </h1>
+        <input type="text" placeholder="Taxable Income" id="taxableIncome" onkeyup="taxCalculator()">
+        <span> </span>
+        <input type="text" placeholder="Income Tax" id="incomeTax" onkeyup="taxCalculator()">
+        <br>
+        <input type="text" placeholder="After-tax income" id="afterTax" onkeyup="taxCalculator()">
+    </div>
+    <script>
+        function taxCalculator(){
+
+            var taxableincome = document.getElementById('taxableIncome').value*1;
+            var incometax = document.getElementById('incomeTax').value*1;
+            var aftertax = document.getElementById('afterTax').value*1;
+
+            if (taxableincome < 250000){
+                var output = "0";
+
+            } else if (taxableincome > 250000 && taxableincome < 400000){
+                var output = (taxableincome-250000)*.20;
+
+            }  else if (taxableincome > 400000 && taxableincome < 800000){
+                var output = (30000+(taxableincome-400000)*.25);
+
+            } else if (taxableincome > 800000 && taxableincome < 2000000){
+                var output = (130000+(taxableincome-800000)*.30);
+
+            } else if (taxableincome > 2000000 && taxableincome < 8000,000){
+                var output = (490000+(taxableincome-2000000)*.32);
+
+            } else {
+                var output = (2410000+(taxableincome-8000000)*.35);
+            }
+
+            let a = taxableincome-output;
+
+            document.getElementById('incomeTax').value=output;
+            document.getElementById("afterTax").value=a;
+        }
+    </script> </main>
+</body>
+</html>

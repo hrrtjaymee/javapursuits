@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/art.jpg);
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+footer{
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(178, 215, 255);
+}
+
+div{
+    
+    border: 3px solid white;
+    padding: 45px;
+    /* margin: 50px; */
+    height: fit-content;
+    width: fit-content;
+    box-sizing: border-box;
+    position: absolute;
+    top: 150px;
+    left: 445px
+}
+
+div2{
+    padding: 15px;
+    height: fit-content;
+    width: fit-content;
+    box-sizing: border-box;
+    position: absolute;
+    top: 400px;
+    left: 546px;
+}
+
+div3{
+    padding: 15px;
+    height: fit-content;
+    width: fit-content;
+    box-sizing: border-box;
+    position: absolute;
+    top: 49px;
+    left: 115px;
+    border:none
+}
+
+/* divin1{
+    margin: 10px;
+} */
+
+h1{
+    text-align: center;
+    font-size: 48px;
+    color:aliceblue;
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 2x;
+}
+
+h2{
+    text-align: center;
+    font-size: 25px;
+    color:aliceblue;
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: -1px;
+}
+button{
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    margin: 2px;
+   }
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   } 
+   
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   }
+

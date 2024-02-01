@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/art.jpg);
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+}
+.converter-body{
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 2px 1px #cacaca;
+}
+
+.converter-title{
+    text-align: center;
+    margin: 13px 0px;
+}
+
+#naturalNumInput{
+    margin-left: 25px;
+}
+
+#naturalNumInputType{
+    width: 169px;
+    margin-left: 100px;
+    color: red
+}

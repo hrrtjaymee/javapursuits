@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ass4.css">
+    <title> Assignment 4</title>
+</head>
+<body> <main>
+    <h1> Simple Payroll </h1>
+    <br>
+    <div class="inputboxes">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" placeholder="Employee Name" id="employeeName">
+        <span>   </span>
+        <label for="daysWorked">Days Worked:</label>
+        <input type="number" placeholder="Days Worked" id="daysWorked">
+        <span>   </span>
+        <label for="dailyRate">Daily Rate:</label>
+        <input type="number" placeholder="Daily Rate" id="dailyRate">
+        <span>   </span>
+        <label for="deductionAmount"> Deduction Amount:</label>
+        <input type="number" placeholder="Deduction Amount" id="deductionAmount">
+        <div class="buttons">
+            <label for="numdel">Table row to delete:</label>
+            <input type="number" id="numdel">
+            <button id="clearbtn"> Clear Content</button>
+            <br>
+            <button id="addbtn"> Add Employee </button>
+        </div>
+    </div>
+    <div class="table">
+        <thead>
+            <tr class="table_rows">
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Grosss Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+            </tr>
+        </thead>
+        <tbody id="table_body"></tbody>
+    </div>
+</main> 
+<script>
+    //inititalize variable to temporarily store  user input
+
+    const employeeName = document.getElementById('employeeName');
+    const daysWorked = document.getElementById('daysWorked');
+    const dailyRate = document.getElementById('dailyRate');
+    const deductionAmount = document.getElementById('deductionAmount');
+    const numdel = document.getElementById("numdel");
+    const addbtn = document.getElementById('addbtn');
+    const clearbtn = document.getElementById('clearbtn');
+
+    let tablelist = [];
+
+    function add(){
+        let list = {
+            name: employeeName.value,
+            days: daysWorked.value,
+            daily: dailyRate.value,
+            deduction: deductionAmount.value
+        }
+
+        tablelist.push(list);
+    }
+
+    function tableItem(){
+        let tableBody = `<tbody>`;
+        tablelist.forEach((value, index) => {
+            tableBody += `<tr>
+            <td>${index}</td>
+            <td>${value.employeeName}</td>
+            <td>${value.daysWorked}</td>
+            <td>${value.dailyRate}</td>
+            <td>${parseInt(value.dailyRate) * parseInt(value.daysWorked)}</td>
+            <td>${value.deductionAmount}</td>
+            <td>${parseInt(value.daysWorked) * parseInt(value.dailyRate) - parseInt(value.deductionAmount)}</td>
+            </tr>`
+        })
+
+        return tableBody + '</tbody>'
+    }
+
+    addbtn.addEventListener('click', () => {
+        add()
+        table_body.innerHTML = tableItem()
+    })
+
+    clearbtn.addEventListener('click', () => {
+        if (confirm("Do you wish to continue?")){
+            tablelist.splice(parseInt(numde.value), 1)
+            table_body.innerHTML = tableItem()
+        }
+    })
+</script>
+</body>
+</html>

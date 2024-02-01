@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Unit Converter</title>
+    <link rel="stylesheet" href="ass1.css">
+</head>
+<body> <main>
+    <div class="converter-body">
+        <h1 class="converter-title"> Converter </h1>
+        <input type="text" placeholder="Input" id="input" onkeyup="myResult()">
+        <span>=</span>
+        <input type="text" placeholder="Result" id="result">
+
+        <select id="inputType" onchange="myResult()">
+            <option value="celsius">Celsius</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="meter">Meter</option>
+            <option value="feet">Feet</option>
+        </select>
+
+        <select id="resultType" onchange="myResult()">
+            <option value="celsius">Celsius</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="meter">Meter</option>
+            <option value="feet">Feet</option>
+        </select>
+    </div>
+
+    <script>
+        var input = document.getElementById('input');
+        var result = document.getElementById('result');
+        var inputType = document.getElementById('inputType');
+        var resultType = document.getElementById('resultType');
+        var inputTypeValue, resultTypeValue;
+
+
+inputTypeValue = inputType.value;
+resultTypeValue = resultType.value;
+
+
+function myResult(){
+    // when we change the input and output type value, we need to update the inputTypeValue and resultTypeValue
+
+    inputTypeValue = inputType.value;
+    resultTypeValue = resultType.value;
+
+    //no compare input and resultType value and add formula
+    
+    if(inputTypeValue === "celsius" && resultTypeValue === "farenheit"){
+        result.value = (Number(input.value) * 1.8) + 32;
+    }
+    else if(inputTypeValue === "farenheit" && resultTypeValue === "celsius"){
+        result.value = (Number(input.value) - 32) / 1.8;
+    }
+    else if(inputTypeValue === "celsius" && resultTypeValue === "celsius"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "farenheit" && resultTypeValue === "farenheit"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "feet" && resultTypeValue === "meter"){
+        result.value = Number(input.value) * 0.3048;
+    }
+    else if(inputTypeValue === "meter" && resultTypeValue === "feet"){
+        result.value = Number(input.value) / 0.3048;
+    }
+    else if(inputTypeValue === "meter" && resultTypeValue === "meter"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "feet" && resultTypeValue === "feet"){
+        result.value = input.value;
+    }
+    else{
+        input.value, result.value = ""
+    }
+
+    document.getElementById('result').value=result.value;
+}
+    </script>
+</main> </body>
+</html>
