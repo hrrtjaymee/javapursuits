@@ -2,25 +2,24 @@ import java.util.Scanner;
 
 
 public class Ch5_PrExercise1{
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number: ");
 
-        String inputUser = sc.next();
-        int length = inputUser.length();
+        System.out.println("Input a number: ");
+        int input = sc.nextInt();
+
         int sum = 0;
-        
-        for (int i = 0; i < length; i++){
-            char ch = inputUser.charAt(i);
-            System.out.print(ch + " ");
-        }
-        System.out.println();
+        String digits = "";
 
-        for(int i = 0; i < length; i++){
-            int num = (int) inputUser.charAt(i);
-            sum += num;
+        while (input > 0) {
+            int digit = input % 10;
+            sum += digit;
+            digits = digit + " " + digits;
+            input /= 10;
         }
-        System.out.println(sum);
+
+        System.out.println("Individual digits: " + digits);
+        System.out.println("Sum of digits: " + sum);
+
         sc.close();
     }
-}
