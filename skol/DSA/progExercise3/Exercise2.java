@@ -10,8 +10,6 @@ public class Exercise2 {
         String squares = "";
         int evenSum = 0;
         int sumOddSquares = 0;
-        int i = firstNum;
-
         
         System.out.println("Enter first number: ");
         firstNum = userInput.nextInt();
@@ -21,6 +19,7 @@ public class Exercise2 {
 
         //firstNum must be less than secondNum
         if(firstNum < secondNum){
+            int i = firstNum;
             while(i <= secondNum){
                 if(i%2 != 0){ //collect odd numbers
                     oddNums = oddNums + " " + i;
@@ -29,13 +28,13 @@ public class Exercise2 {
                 else{ //collect even numbers
                     evenSum += i;
                 }
-                allNum = allNum + " " + i;
-                squares = squares + " " + Math.pow(i, 2);
+                allNums = allNums + " " + i;
+                squares = squares + " " + (int) Math.pow(i, 2);
                 i++;
             }
 
             System.out.println("Odd numbers: " + oddNums);
-            System.out.println("Sum of even numbers: " + oddNums);
+            System.out.println("Sum of even numbers: " + evenSum);
             System.out.println("Numbers: " + allNums);
             System.out.println("Squares of the numberss: " + squares);
             System.out.println("Squares of the odd numbers: " + sumOddSquares);
