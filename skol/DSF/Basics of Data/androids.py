@@ -27,15 +27,16 @@ for i in range(0, len(myList)-1):
     publishedAt.append(myList[i]["publishedAt"])
 
 ##authors #get rid of email addresses
-for i in authors:
-    if "(" in i:
-        first = i.index("(")
-        second = i.index(")")
-        i = i[first+1:second]
+for i in range(len(authors)):
+    if "(" in authors[i]:
+        first = authors[i].index("(") + 1
+        second = authors[i].index(")")
+        authors[i]= authors[i][first : second]
 #formatting date
-for i in publishedAt:
-    i = i[0:10]
+for i in range(len(publishedAt)):
+    publishedAt[i] = publishedAt[i][0:10]
 
+print(publishedAt)
     
 with open("articles.csv", "w", newline="") as csvFile:
     fieldNames = ["Source", "Author", "Title", "URL", "PublishedAt"]
