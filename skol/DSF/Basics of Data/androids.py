@@ -12,9 +12,13 @@ req = requests.get("https://newsapi.org/v2/everything", params)
 articles = json.loads(req.text)
 #print(articles)
 myList = articles["articles"]
-myDict = {}
+#print(len(myList))
+myDict = {"source":[], "author":[], "title":[], "url":[], "publishedAt":[]}
 for i in myList:
-    
+    if i == "source":
+        myDict[source]= myList[i].values()
+
+print(myDict)
 
 '''with open("articles.csv", "w", newline="") as csvFile:
     fieldNames = ["Source", "Author", "Title", "URL", "PublishedAt"]
@@ -26,7 +30,3 @@ for i in myList:
         writer.writerow(myList[i])'''
 
     
-
-    
-
-
