@@ -12,21 +12,38 @@ req = requests.get("https://newsapi.org/v2/everything", params)
 articles = json.loads(req.text)
 #print(articles)
 myList = articles["articles"]
-#print(len(myList))
-myDict = {"source":[], "author":[], "title":[], "url":[], "publishedAt":[]}
-for i in myList:
-    if i == "source":
-        myDict[source]= myList[i].values()
+fields  = ["source", "author", "title", "url", "publishedAt"]
+sources = []
+authors = []
+titles = []
+urls = []
+publishedAt = []
 
-print(myDict)
+for i in range(0, len(myList)-1):
+    sources.append(myList[i]["source"]["name"])
+    authors.append(myList[i]["author"])
+    titles.append(myList[i]["title"])
+    urls.append(myList[i]["url"])
+    publishedAt.append(myList[i]["publishedAt"])
 
-'''with open("articles.csv", "w", newline="") as csvFile:
+##authors #get rid of email addresses
+for i in authors:
+    if "(" in i:
+        first = i.index("(")
+        second = i.index(")")
+        i = i[first+1:second]
+#formatting date
+for i in publishedAt:
+    i = i[0:10]
+
+    
+with open("articles.csv", "w", newline="") as csvFile:
     fieldNames = ["Source", "Author", "Title", "URL", "PublishedAt"]
     writer = csv.DictWriter(csvFile, fieldnames = fieldNames)
 
     writer.writeheader()
-    writer.writerow(dict(myList)
-    for i in myList:
-        writer.writerow(myList[i])'''
+    for i in range(len(myList)-1):
+        writer.writerow({fieldNames[0]:sources[i], fieldNames[1]:authors[i], fieldNames[2]:titles[i], 
+                         fieldNames[3]:urls[i], fieldNames[4]:publishedAt[i]})
 
     
